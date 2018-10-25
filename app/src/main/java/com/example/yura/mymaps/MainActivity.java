@@ -12,10 +12,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+
+        String geoURI = "geo:CFG7+JM?z=18";
+        Uri geo = Uri.parse(geoURI);
+        Intent geoIntent = new Intent(Intent.ACTION_VIEW, geo);
+
+        if (geoIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(geoIntent);
+        }
     }
 
-    public void onClick(View view) {
+
+/*
+        public void onClick(View view) {
         EditText inputEditText = (EditText) findViewById(R.id.editText);
 
 
@@ -29,4 +39,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(mapIntent);
         }
     }
+*/
 }
